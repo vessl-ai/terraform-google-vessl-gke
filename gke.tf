@@ -32,5 +32,6 @@ resource "google_container_cluster" "this" {
     services_secondary_range_name = var.secondary_ip_range_name_for_services
   }
 
-  logging_service = "none"
+  logging_service     = "none"
+  deletion_protection = false
 }
