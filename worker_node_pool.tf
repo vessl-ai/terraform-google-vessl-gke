@@ -40,12 +40,13 @@ resource "google_container_node_pool" "workers" {
   }
 
   network_config {
-    enable_private_nodes = false
+    enable_private_nodes = true
   }
 
   initial_node_count = each.value.total_min_count
   autoscaling {
     total_min_node_count = each.value.total_min_count
     total_max_node_count = each.value.total_max_count
+    location_policy      = "ANY"
   }
 }
