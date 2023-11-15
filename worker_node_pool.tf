@@ -18,9 +18,9 @@ resource "google_container_node_pool" "workers" {
     disk_type    = each.value.disk_type
     disk_size_gb = each.value.disk_size_gb
 
-    labels = {
+    labels = merge({
       "v1.k8s.vessl.ai/managed" = "true"
-    }
+    }, each.value.labels)
 
     oauth_scopes    = local.node_oauth_scopes
     service_account = google_service_account.cluster_service_account.email

@@ -45,6 +45,7 @@ variable "worker_node_pool_configs" {
     zones             = optional(list(string), [])
     accelerator_type  = optional(string, null) // `gcloud compute accelerator-types list`
     accelerator_count = optional(number, null)
+    labels            = optional(map(string), {})
   }))
   default = []
 }
