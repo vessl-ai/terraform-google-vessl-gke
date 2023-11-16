@@ -49,4 +49,11 @@ resource "google_container_node_pool" "workers" {
     total_max_node_count = each.value.total_max_count
     location_policy      = "ANY"
   }
+
+  lifecycle {
+    ignore_changes = [
+      initial_node_count,
+      autoscaling,
+    ]
+  }
 }
