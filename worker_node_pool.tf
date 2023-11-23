@@ -43,7 +43,7 @@ resource "google_container_node_pool" "workers" {
     enable_private_nodes = true
   }
 
-  initial_node_count = 1 // per zone
+  initial_node_count = 0
   autoscaling {
     total_min_node_count = each.value.total_min_count
     total_max_node_count = each.value.total_max_count

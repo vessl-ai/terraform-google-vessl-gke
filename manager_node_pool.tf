@@ -35,7 +35,7 @@ resource "google_container_node_pool" "manager" {
     enable_private_nodes = false
   }
 
-  initial_node_count = 1 // per zone
+  initial_node_count = 0
   autoscaling {
     total_min_node_count = var.manager_node_pool_config.node_count
     total_max_node_count = var.manager_node_pool_config.node_count + 2
