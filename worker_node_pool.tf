@@ -1,5 +1,5 @@
 resource "google_container_node_pool" "workers" {
-  for_each = { for i, v in var.worker_node_pool_configs : i => v }
+  for_each = { for _, v in var.worker_node_pool_configs : v.name => v }
   depends_on = [
     google_container_cluster.this,
     google_service_account.cluster_service_account,
