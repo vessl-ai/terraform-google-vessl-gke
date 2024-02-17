@@ -10,7 +10,7 @@ resource "google_container_node_pool" "workers" {
 
   name    = each.value.name
   cluster = google_container_cluster.this.name
-  version = google_container_cluster.this.node_version
+  version = var.node_version == null ? google_container_cluster.this.node_version : var.node_version
 
   node_config {
     machine_type = each.value.machine_type

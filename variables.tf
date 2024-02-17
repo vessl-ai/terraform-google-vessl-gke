@@ -1,6 +1,9 @@
 variable "project_id" {}
 variable "cluster_name" {}
 variable "kubernetes_version" {}
+variable "node_version" {
+  default = null
+}
 variable "region" {}
 variable "zones" {}
 variable "network_name" {}
