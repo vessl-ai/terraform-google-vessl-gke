@@ -50,6 +50,7 @@ variable "worker_node_pool_configs" {
     accelerator_type   = optional(string, null) // `gcloud compute accelerator-types list`
     accelerator_count  = optional(number, null)
     labels             = optional(map(string), {})
+    spot               = optional(bool, false)
   }))
   default = []
 }
