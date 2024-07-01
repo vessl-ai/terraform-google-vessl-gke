@@ -51,6 +51,10 @@ resource "google_container_node_pool" "workers" {
     location_policy      = "ANY"
   }
 
+  management {
+    auto_upgrade = false
+  }
+
   lifecycle {
     ignore_changes = [
       initial_node_count

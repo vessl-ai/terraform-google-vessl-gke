@@ -40,4 +40,8 @@ resource "google_container_node_pool" "manager" {
     total_min_node_count = var.manager_node_pool_config.node_count
     total_max_node_count = var.manager_node_pool_config.node_count + 2
   }
+
+  management {
+    auto_upgrade = false
+  }
 }
