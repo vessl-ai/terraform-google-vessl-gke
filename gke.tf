@@ -34,4 +34,8 @@ resource "google_container_cluster" "this" {
 
   logging_service     = "none"
   deletion_protection = false
+
+  release_channel {
+    channel = var.autoupdate ? "STABLE" : "UNSPECIFIED"
+  }
 }

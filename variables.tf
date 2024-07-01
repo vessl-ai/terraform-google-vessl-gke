@@ -18,6 +18,11 @@ variable "grant_registry_access" {
   default = false
 }
 
+variable "autoupdate" {
+  type = bool
+  default = false
+}
+
 variable "manager_node_pool_config" {
   type = object({
     name         = optional(string, "manager")
