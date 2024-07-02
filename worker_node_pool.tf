@@ -52,7 +52,7 @@ resource "google_container_node_pool" "workers" {
   }
 
   management {
-    auto_upgrade = false
+    auto_upgrade = var.autoupdate
   }
 
   lifecycle {
