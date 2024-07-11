@@ -19,7 +19,7 @@ variable "grant_registry_access" {
 }
 
 variable "autoupdate" {
-  type = bool
+  type    = bool
   default = false
 }
 
@@ -56,6 +56,7 @@ variable "worker_node_pool_configs" {
     accelerator_count  = optional(number, null)
     labels             = optional(map(string), {})
     spot               = optional(bool, false)
+    local_ssd_count    = optional(number, 0) // used for ephemeral storage, and possibly for image pulls?
   }))
   default = []
 }

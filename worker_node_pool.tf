@@ -18,6 +18,10 @@ resource "google_container_node_pool" "workers" {
     disk_type    = each.value.disk_type
     disk_size_gb = each.value.disk_size_gb
     spot         = each.value.spot
+    ephemeral_storage_config {
+      count = (each.value.local_ssd_count > 0 ? 1 : 0)
+      local_ssd_count = each.value.local_ssd_count
+    }
 
     labels = merge({
       "v1.k8s.vessl.ai/managed" = "true"
