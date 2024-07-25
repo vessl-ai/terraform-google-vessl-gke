@@ -56,6 +56,11 @@ variable "worker_node_pool_configs" {
     accelerator_count  = optional(number, null)
     labels             = optional(map(string), {})
     spot               = optional(bool, false)
+    taints = optional(list(object({
+      key = string
+      value = string
+      effect = string
+    })), [])
   }))
   default = []
 }

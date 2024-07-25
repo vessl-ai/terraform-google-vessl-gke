@@ -22,6 +22,14 @@ resource "google_container_node_pool" "workers" {
     labels = merge({
       "v1.k8s.vessl.ai/managed" = "true"
     }, each.value.labels)
+    dynamic taint {
+      for_each = each.value.taints
+      content {
+        key = taint.value.key
+        value = taint.value.value
+        effect = taint.value.effect
+      }
+    }
 
     oauth_scopes    = local.node_oauth_scopes
     service_account = google_service_account.cluster_service_account.email
