@@ -23,7 +23,7 @@ resource "google_container_node_pool" "workers" {
       "v1.k8s.vessl.ai/managed" = "true"
     }, each.value.labels)
     dynamic taint {
-      for_each = each.value.taints
+      for_each = merge(var.worker_node_common_taints, each.value.taints)
       content {
         key = taint.value.key
         value = taint.value.value
