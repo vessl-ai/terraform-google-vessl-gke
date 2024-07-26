@@ -64,3 +64,11 @@ variable "worker_node_pool_configs" {
   }))
   default = []
 }
+
+variable "worker_node_common_taints" {
+  type = optional(list(object({
+    key = string
+    value = string
+    effect = string
+  })), [])
+}
