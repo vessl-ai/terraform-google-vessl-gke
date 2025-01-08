@@ -4,7 +4,11 @@ resource "google_container_cluster" "this" {
   network    = var.network_name
   subnetwork = var.subnet_name
 
-  min_master_version       = data.google_container_engine_versions.gke_version.latest_master_version
+  min_master_version       = (
+    (var.min_master_version != null)
+    ? var.min_master_version
+    : data.google_container_engine_versions.gke_version.latest_master_version
+  )
   initial_node_count       = 1
   remove_default_node_pool = true
 

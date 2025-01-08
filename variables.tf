@@ -4,6 +4,10 @@ variable "kubernetes_version" {}
 variable "node_version" {
   default = null
 }
+variable "min_master_version" {
+  type = optional(string)
+  default = null
+}
 variable "region" {}
 variable "zones" {}
 variable "network_name" {}
