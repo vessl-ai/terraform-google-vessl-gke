@@ -5,7 +5,7 @@ variable "node_version" {
   default = null
 }
 variable "min_master_version" {
-  type = optional(string)
+  type = string
   default = null
 }
 variable "region" {}
